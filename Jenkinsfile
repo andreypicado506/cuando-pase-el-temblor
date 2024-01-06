@@ -8,6 +8,9 @@ pipeline {
             image 'andreypicado506/custom-python3:cerati'
         }
     }
+    triggers {
+        cron('H/30 * * * *')
+    }
     parameters {
         string(
         name:'OVSICORI_URL',
