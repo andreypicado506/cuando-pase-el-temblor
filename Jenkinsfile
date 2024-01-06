@@ -26,7 +26,7 @@ pipeline {
         description: 'Nombre del archivo que contiene los datos sísmicos (se creará si no existe)')
     }
     environment {
-        GITHUB_REPO_URL = 'git@github.com:andreypicado506/wake_up.git'
+        GITHUB_REPO_URL = 'git@github.com:andreypicado506/cuando-pase-el-temblor.git'
     }
 
     stages {
