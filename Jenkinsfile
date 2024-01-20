@@ -61,11 +61,6 @@ pipeline {
                         -f ${S3_FILE_NAME} -l ${S3_FILE_NAME}',
                         returnStdout: true).trim()
                         if (ceratiShouldBeWakeUp == 'True') {
-                            mail(
-                                subject: '¡Despierta!',
-                                body:    'Ya pasó el temblor.',
-                                to:      'andreypicado506@gmail.com'
-                            )
                             currentBuild.displayName = "${currentBuild.number}: Cerati fue despertado"
                         }
                         else {
