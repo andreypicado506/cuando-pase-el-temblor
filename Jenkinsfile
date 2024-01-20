@@ -60,7 +60,6 @@ pipeline {
                         script: 'python3 scripts/check_s3.py -b ${S3_BUCKET_NAME} \
                         -f ${S3_FILE_NAME} -l ${S3_FILE_NAME}',
                         returnStdout: true).trim()
-                        currentBuild.displayName = "${currentBuild.number} > ${ceratiShouldBeWakeUp}"
                     }
                 }
             }
@@ -77,15 +76,18 @@ pipeline {
                         to:      'andreypicado506@gmail.com'
                     )
                     echo '¡Cerati debe ser despertado!'
+                    currentBuild.displayName = "${currentBuild.number}: Cerati fue despertado"
                 }
                 else {
                     echo 'Cerati no debe ser despertado.'
+                    currentBuild.displayName = "${currentBuild.number}: Cerati no fue despertado"
                 }
             }
         }
         failure {
             // This block will be executed if the pipeline fails
             echo 'Algo salió mal.'
+            currentBuild.displayName = "${currentBuild.number}: Algo salió mal"
         }
     }
 }
